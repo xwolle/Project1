@@ -22,6 +22,8 @@ public class BSTTest extends TestCase {
         test.insert("dick");
         test.insert("harry");
         
+        
+        
     }
     
     
