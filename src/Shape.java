@@ -8,8 +8,15 @@ public class Shape {
 
     /**
      * instance fields
+     * 
+     * height, width, coordinates, and name
+     * 
      */
-    
+    private int height;
+    private int width;
+    private int x;
+    private int y;
+    private String name;
     
     
 }
