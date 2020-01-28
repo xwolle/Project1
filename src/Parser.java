@@ -52,7 +52,8 @@ public class Parser extends BST {
             
             if (nextArr[0].equalsIgnoreCase("insert")) {
                 
-                if (Integer.parseInt(nextArr[4]) <= 0 || Integer.parseInt(nextArr[5]) <= 0) {
+                if (Integer.parseInt(nextArr[4]) <= 0 || Integer.parseInt(nextArr[5]) <= 0
+                    || (Integer.parseInt(nextArr[2]) <= 0) || (Integer.parseInt(nextArr[3]) <= 0)) {
                     
                     System.out.println("(Rectangle Rejected: " + nextArr[1] + ", " + nextArr[2]
                         + ", " + nextArr[3] + ", " + nextArr[4] + ")");  
