@@ -21,7 +21,7 @@ public class Shape {
     /**
      * constructor for shape
      */
-    public Shape(String name, int h, int w, int x, int y) {
+    public Shape(String name, int x, int y, int w, int h) {
         
         this.name = name;
         height = h;
