@@ -57,16 +57,21 @@ public class Parser extends BST {
                     || ((Integer.parseInt(nextArr[2]) + Integer.parseInt(nextArr[4]) > 1024))
                     || ((Integer.parseInt(nextArr[3]) + Integer.parseInt(nextArr[5]) > 1024))) {
                     
-                    System.out.println("Rectangle Rejected: (" + nextArr[1] + ", " + nextArr[2]
-                        + ", " + nextArr[3] + ", " + nextArr[4] + ")");  
+                    System.out.println("Rectangle rejected: (" + nextArr[1] + ", " + nextArr[2]
+                        + ", " + nextArr[3] + ", " + nextArr[4] + ", " + nextArr[5] + ")");  
+                    
+                } else {
+                    
+                    lastShape = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
+                        Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
+                            Integer.parseInt(nextArr[5]));
+                    
+                    System.out.println("Rectangle accepted: " + lastShape.toString());
+              
                     
                 }
                 
-                lastShape = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
-                    Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
-                        Integer.parseInt(nextArr[5]));
                 
-                System.out.println("Rectangle accepted: " + lastShape.toString());
                 
             }
             
