@@ -68,7 +68,6 @@ public class Parser extends BST {
                 
                 System.out.println("Rectangle accepted: " + lastShape.toString());
                 
-                
             }
         }
     }
