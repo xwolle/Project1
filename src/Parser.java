@@ -53,12 +53,20 @@ public class Parser extends BST {
             if (nextArr[0].equalsIgnoreCase("insert")) {
                 
                 if (Integer.parseInt(nextArr[4]) <= 0 || Integer.parseInt(nextArr[5]) <= 0
-                    || (Integer.parseInt(nextArr[2]) <= 0) || (Integer.parseInt(nextArr[3]) <= 0)) {
+                    || (Integer.parseInt(nextArr[2]) <= 0) || (Integer.parseInt(nextArr[3]) <= 0)
+                    || ((Integer.parseInt(nextArr[2]) + Integer.parseInt(nextArr[4]) > 1024))
+                    || ((Integer.parseInt(nextArr[3]) + Integer.parseInt(nextArr[5]) > 1024))) {
                     
                     System.out.println("(Rectangle Rejected: " + nextArr[1] + ", " + nextArr[2]
                         + ", " + nextArr[3] + ", " + nextArr[4] + ")");  
                     
                 }
+                
+                lastShape = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
+                    Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
+                        Integer.parseInt(nextArr[5]));
+                
+                System.out.println("Rectangle accepted: " + lastShape.toString());
                 
                 
             }

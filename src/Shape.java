@@ -81,8 +81,8 @@ public class Shape {
      */
     public String toString() {
         
-        return ("(<" + this.name + ">, <" + this.x + ">, <"
-            + this.y + ">, <" + this.width + ">, <" + this.height + ">)");
+        return ("(" + this.name + ", " + this.x + ", "
+            + this.y + ", " + this.width + ", " + this.height + ")");
         
         
     }
