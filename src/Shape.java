@@ -4,7 +4,7 @@
  * @version <1.28.20>
  *
  */
-public class Shape {
+public class Shape implements comparator<Shape>{
 
     /**
      * instance fields
@@ -17,11 +17,12 @@ public class Shape {
     private int x;
     private int y;
     private String name;
+    private String comp;
     
     /**
      * constructor for shape
      */
-    public Shape(String name, int x, int y, int w, int h) {
+    public Shape(String name, int x, int y, int w, int h, String comp) {
         
         this.name = name;
         height = h;
@@ -85,5 +86,15 @@ public class Shape {
         
     }
     
-    //need toString
+    public int compareTo(Shape other)
+    {
+        if (comp == "str")
+        {
+            return (this.name.compareTo(other.name));
+        }
+        else
+        {
+            return (this.x*this.y*this.height*this.width - other.getHeight()*other.getWidth()*other.getXVal()*other.getYVal())
+        }
+    }
 }

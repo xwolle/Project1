@@ -15,7 +15,8 @@ public class Parser extends BST {
     /**
      * fields
      */
-    private BST shapes;
+    private BST shapesI;
+    private BST shapesS;
     private Scanner fileInput;
     private Shape lastShape;
     
@@ -25,14 +26,14 @@ public class Parser extends BST {
      */
     public Parser(String file) throws FileNotFoundException {
         
-        shapes = new BST();
+        shapesS = new BST();
+        shapesI = new BST();
         fileInput = new Scanner(new File(file));
         lastShape = null;
         
         while (fileInput.hasNextLine()) {
             
             parseData();
-            
         }
         
     }
@@ -62,9 +63,16 @@ public class Parser extends BST {
                     
                 } else {
                     
-                    lastShape = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
+                    lastShapeI = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
                         Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
-                            Integer.parseInt(nextArr[5]));
+                            Integer.parseInt(nextArr[5], "int"));
+                    
+                    lastShapeS = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
+                        Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
+                            Integer.parseInt(nextArr[5], "str"));
+                    
+                    shapesI.insert(lastShapeI)
+                    shapesS.insert(lastShapeS)
                     
                     System.out.println("Rectangle accepted: " + lastShape.toString());
               
@@ -75,7 +83,44 @@ public class Parser extends BST {
                 
             }
             
-            else if (nextArr[0].equalsIgnoreCase("remove")) {
+            else if (nextArr[0].equalsIgnoreCase("remove"))
+            {
+                if (nextArr.length == 2)
+                {
+                    String name = nextArr[1];
+                    Shape tempShape = new Shape (name,0,0,0,0,"str");
+                    
+                    if (shapesS.find(tempShape)  == null)
+                    {
+                        Systemp.out.println("SHAPE NOT FOUND");
+                    }
+                    else
+                    {
+                        Shape tempShape1 = new Shape(name, shapesS.find(tempShape).getHeight(), shapesS.find(tempShape).getWidth(), shapesS.find(tempShape).getXVal(), shapesS.find(tempShape).getYVal(), "int");
+                        shapesI.remove(tempShape1);
+                        shapesS.remove(tempShape);
+                    }
+                }
+                else if (nextArr.length == 5)
+                {
+                    String h = nextArr[1];
+                    String w = nextArr[2];
+                    String x = nextArr[3];
+                    String y = nextArr[4];
+                    
+                    Shape tempShape = new Shape ("frog",h,w,x,y,"int");
+                        
+                    if (shapesI.find(tempShape) == null)
+                    {
+                        Systemp.out.println("SHAPE NOT FOUND");
+                    }
+                    else
+                    {
+                        Shape tempShape1 = new Shape(shapesI.find(tempShape).getName()),0,0,0,0,"str");
+                        shapesS.remove(tempShape1);
+                        shapesI.remove(tempShape);
+                    }
+                }
             }
         }
     }   
