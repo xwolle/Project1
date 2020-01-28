@@ -18,5 +18,18 @@ public class Shape {
     private int y;
     private String name;
     
+    /**
+     * constructor for first insert
+     */
+    public Shape(String name, int h, int w, int x, int y) {
+        
+        this.name = name;
+        height = h;
+        width = w;
+        this.x = x;
+        this.y = y;
+        
+    }
     
+    //need compareTo and toString
 }
