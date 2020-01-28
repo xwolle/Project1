@@ -29,7 +29,7 @@ public class Shape {
         width = w;
         this.x = x;
         this.y = y;
-        this.test = "TEST";
+        this.test = "TESTING";
         
     }
     
