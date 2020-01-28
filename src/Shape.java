@@ -19,7 +19,7 @@ public class Shape {
     private String name;
     
     /**
-     * constructor for first insert
+     * constructor for shape
      */
     public Shape(String name, int h, int w, int x, int y) {
         
@@ -31,5 +31,59 @@ public class Shape {
         
     }
     
-    //need compareTo and toString
+    /**
+     * name getter
+     * @return name/keyval of object
+     */
+    public String getName() {
+        
+        return this.name;
+        
+    }
+    /**
+     * height getter
+     * @return height
+     */
+    public int getHeight() {
+        
+        return this.height;
+    }
+    
+    /**
+     * width getter
+     * @return width
+     */
+    public int getWidth() {
+        
+        return this.width;
+    }
+    /**
+     * getter for X-POS
+     * @return x-position
+     */
+    public int getXVal() {
+        
+        return this.x;
+    }
+    /**
+     * getter for Y-POS
+     * @return y-position
+     */
+    public int getYVal() {
+        
+        return this.y;
+    }
+    
+    /**
+     * return string representation of a shape
+     */
+    public String toString() {
+        
+        return ("(<" + this.name + ">, <" + this.x + ">, <"
+            + this.y + ">, <" + this.width + ">, <" + this.height + ">)");
+        
+        
+    }
+    
+    //need toString
 }
