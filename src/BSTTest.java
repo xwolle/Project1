@@ -1,6 +1,6 @@
-import junit.framework.TestCase;
 
-public class BSTTest extends TestCase {
+
+public class BSTTest extends student.TestCase {
 
     
     private BST<String> test;
