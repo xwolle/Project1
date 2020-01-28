@@ -17,7 +17,6 @@ public class Shape {
     private int x;
     private int y;
     private String name;
-    private String test;
     
     /**
      * constructor for shape
@@ -29,7 +28,6 @@ public class Shape {
         width = w;
         this.x = x;
         this.y = y;
-        this.test = "TESTING";
         
     }
     

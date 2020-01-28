@@ -1,0 +1,3 @@
+insert a543dfgsds_ASFD 2 3 4 5
+Insert basdf34 0 0 2 3
+Insert faeroe 0 0 -1 0
