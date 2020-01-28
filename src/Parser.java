@@ -69,8 +69,10 @@ public class Parser extends BST {
                 System.out.println("Rectangle accepted: " + lastShape.toString());
                 
             }
+            
+            else if (nextArr[0].equalsIgnoreCase("remove")) {
+            }
         }
-    }
-    
+    }   
 
 }
