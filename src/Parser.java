@@ -8,6 +8,7 @@ import java.util.Scanner;
  * 
  * @author xander <xander1>
  * @version <1.28.20>
+ * @param <T>
  *
  */
 public class Parser extends BST {
@@ -26,8 +27,8 @@ public class Parser extends BST {
      */
     public Parser(String file) throws FileNotFoundException {
         
-        shapesS = new BST();
-        shapesI = new BST();
+        shapesS = new BST<Shape>();
+        shapesI = new BST<Shape>();
         fileInput = new Scanner(new File(file));
         lastShape = null;
         
@@ -63,16 +64,16 @@ public class Parser extends BST {
                     
                 } else {
                     
-                    lastShapeI = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
+                    Shape lastShapeI = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
                         Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
-                            Integer.parseInt(nextArr[5], "int"));
+                            Integer.parseInt(nextArr[5]), "int");
                     
-                    lastShapeS = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
+                    Shape lastShapeS = new Shape(nextArr[1], Integer.parseInt(nextArr[2]),
                         Integer.parseInt(nextArr[3]), Integer.parseInt(nextArr[4]),
-                            Integer.parseInt(nextArr[5], "str"));
+                            Integer.parseInt(nextArr[5]),"str");
                     
-                    shapesI.insert(lastShapeI)
-                    shapesS.insert(lastShapeS)
+                    shapesI.insert(lastShapeI);
+                    shapesS.insert(lastShapeS);
                     
                     System.out.println("Rectangle accepted: " + lastShape.toString());
               
@@ -92,31 +93,37 @@ public class Parser extends BST {
                     
                     if (shapesS.find(tempShape)  == null)
                     {
-                        Systemp.out.println("SHAPE NOT FOUND");
+                        System.out.println("SHAPE NOT FOUND");
                     }
                     else
                     {
-                        Shape tempShape1 = new Shape(name, shapesS.find(tempShape).getHeight(), shapesS.find(tempShape).getWidth(), shapesS.find(tempShape).getXVal(), shapesS.find(tempShape).getYVal(), "int");
+                        Shape tempShape1 = new Shape(name, ((Shape)shapesS.find(tempShape)).getHeight(), 
+                            ((Shape)shapesS.find(tempShape)).getWidth(), 
+                            ((Shape)shapesS.find(tempShape)).getXVal(), 
+                            ((Shape)shapesS.find(tempShape)).getYVal(), "int");
+                        
                         shapesI.remove(tempShape1);
                         shapesS.remove(tempShape);
                     }
                 }
                 else if (nextArr.length == 5)
                 {
-                    String h = nextArr[1];
-                    String w = nextArr[2];
-                    String x = nextArr[3];
-                    String y = nextArr[4];
+                    int h = Integer.parseInt(nextArr[1]);
+                    int w = Integer.parseInt(nextArr[2]);
+                    int x = Integer.parseInt(nextArr[3]);
+                    int y = Integer.parseInt(nextArr[4]);
                     
                     Shape tempShape = new Shape ("frog",h,w,x,y,"int");
                         
                     if (shapesI.find(tempShape) == null)
                     {
-                        Systemp.out.println("SHAPE NOT FOUND");
+                        System.out.println("SHAPE NOT FOUND");
                     }
                     else
                     {
-                        Shape tempShape1 = new Shape(shapesI.find(tempShape).getName()),0,0,0,0,"str");
+                        Shape tempShape1 = (Shape)shapesI.find(tempShape);
+                        tempShape1 = new Shape(tempShape1.getName(), 0, 0, 0, 0, "str");
+
                         shapesS.remove(tempShape1);
                         shapesI.remove(tempShape);
                     }

@@ -4,7 +4,7 @@
  * @version <1.28.20>
  *
  */
-public class Shape implements comparator<Shape>{
+public class Shape implements Comparable<Shape> {
 
     /**
      * instance fields
@@ -86,15 +86,26 @@ public class Shape implements comparator<Shape>{
         
     }
     
+    @Override
     public int compareTo(Shape other)
     {
         if (comp == "str")
         {
-            return (this.name.compareTo(other.name));
+            return (this.name.compareTo(((Shape)other).getName()));
         }
         else
         {
-            return (this.x*this.y*this.height*this.width - other.getHeight()*other.getWidth()*other.getXVal()*other.getYVal())
+            return (this.x*this.y*this.height*this.width - 
+                ((Shape)other).getHeight()*((Shape)other).getWidth()
+                *((Shape)other).getXVal()*((Shape)other).getYVal());
         }
     }
+
+//    @Override
+//    public int compareTo(Shape o) {
+//        // TODO Auto-generated method stub
+//        return 0;
+//    }
+
+
 }
